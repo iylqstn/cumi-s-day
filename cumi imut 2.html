@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake Simulator</title>
+    <style>
+        body {
+            text-align: center;
+            <body style="background-image: url("bilik.jpg");>
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .front-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .front-page button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background: pink;
+            border: none;
+            border-radius: 10px;
+        }
+        h1 {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .table {
+            width: 300px;
+            height: 100px;
+            background: #8B4513;
+            position: relative;
+            margin-top: 350px;
+            border-radius: 10px;
+        }
+        .cake {
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 250px;
+            background: pink;
+            border-radius: 10px 10px 0 0;
+            box-shadow: inset 0 -10px 0 #d47fa6;
+        }
+        .layer {
+            width: 220px;
+            height: 60px;
+            background: pink;
+            position: absolute;
+            left: 0;
+            border-top: 5px solid #d47fa6;
+        }
+        .layer:nth-child(1) { top: 0; }
+        .layer:nth-child(2) { top: 60px; }
+        .layer:nth-child(3) { top: 120px; }
+        .sprinkles {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 20px;
+            background: url('sprinkles.png') no-repeat center;
+            background-size: contain;
+        }
+        .candle {
+            width: 10px;
+            height: 30px;
+            background: green;
+            display: inline-block;
+            position: absolute;
+            top: -30px;
+            cursor: pointer;
+        }
+        .candle:nth-child(1) { left: 60px; }
+        .candle:nth-child(2) { left: 90px; }
+        .candle:nth-child(3) { left: 120px; }
+        .flame {
+            width: 10px;
+            height: 15px;
+            background: orange;
+            border-radius: 50%;
+            position: absolute;
+            top: -15px;
+            left: 0;
+            animation: flicker 0.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.2); opacity: 0.7; }
+        }
+        #surprise {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="frontPage" class="front-page">
+        <h1>🎉 Click Below for a Surprise! 🎉</h1>
+        <button onclick="showCake()">HMU GURLLLLL</button>
+    </div>
+    
+    <div id="cakePage" class="hidden">
+        <h1>🎂 HAPPY BIRTHDAY ISMI HAIFA NASUHA ! 🎂</h1>
+        <div class="table"></div>
+        <div class="cake">
+            <div class="sprinkles"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="candles">
+                <div class="candle" onclick="showSurprise()"><div class="flame"></div></div>
+                <div class="candle" onclick="showSurprise()"><div class="flame"></div></div>
+                <div class="candle" onclick="showSurprise()"><div class="flame"></div></div>
+            </div>
+        </div>
+        <h2 id="surprise" class="hidden">🎉 CHEERS TO ANOTHER YEAR FULL OF BLESSINGS,FABULOUS AND ADVENTURES! I HOPE YOUR DAYS WILL ALWAYS LIT UP WITH DREAMS AND STARSS. JANGAN STRESS STRESS, I YAKIN YOU WILL ROCK YOUR FINALS AND JADI DR ISMI HAIFA NASUHA. DONT WORRY SETAKAT TOK KAWAN KAWAN KMK SEMUANYA HAVE THE BEST OF LUCK EVER SO JUST CHILL CHILL OKAY DONT PUSH YOURSELF TOO MUCH. HAVE A BLESS DAYY . ME LEP LEP YOU. SINCERELY FROM IYLIA IMUT CANTIK 🎉</h2>
+        <audio id="birthdaySong" src="happy_birthday_piano.mp3" preload="auto"></audio>
+    </div>
+    
+    <script>
+        function showCake() {
+            document.getElementById('frontPage').remove();
+            document.getElementById('cakePage').classList.remove('hidden');
+        }
+        function showSurprise() {
+            document.getElementById('surprise').classList.remove('hidden');
+            document.getElementById('birthdaySong').play();
+        }
+    </script>
+</body>
+</html>
